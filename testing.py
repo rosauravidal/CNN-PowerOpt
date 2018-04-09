@@ -48,12 +48,12 @@ y_test = np_utils.to_categorical(y_test)
 print 'Loaded', len(x_train), 'clean training images, shape:', np.array(x_train).shape
 print 'Loaded', len(x_test), 'clean testing images, shape:', np.array(x_test).shape
 
-print '\nClassifying ground truth images...'
+print '\nClassifying training images...'
 x_test_classifEval = classif_model.evaluate(x_test, y_test, verbose=0)
 x_test_classifAccuracy = x_test_classifEval[1]
-print x_test_classifAccuracy
+print 'Accuracy:', x_test_classifAccuracy
 
-print '\nClassifying noisy images...'
-x_train_noisy_classifEval = classif_model.evaluate(x_train_noisy, y_train, verbose=0)
-x_train_noisy_classifAccuracy = x_train_noisy_classifEval[1]
-print x_train_noisy_classifAccuracy
+print '\nClassifying testing images...'
+x_train_classifEval = classif_model.evaluate(x_train, y_train, verbose=0)
+x_train_classifAccuracy = x_train_classifEval[1]
+print 'Accuracy:', x_train_classifAccuracy
